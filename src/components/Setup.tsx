@@ -1,24 +1,13 @@
-import React, {Dispatch, SetStateAction, useContext} from 'react'
-import { AppContext } from '../AppContext'
+import DateInput from './DateInput'
+import NumberInput from './NumberInput'
 
 const Setup = () => {
-    const context = useContext(AppContext)!
-    const setStartDate = context.setStartDate
-    
     return (
-        <div>
-            <div>
-                <p>Start Date:</p>
-                <input 
-                    type="date" 
-                    value={context.startDate.toDateString()} 
-                    onChange={(e) => setStartDate(e.target.valueAsDate!)}
-                />
-            </div>
-            {/* <div>
-                <p>End Date:</p>
-                <input type="date" value={context.displayDate.toDateString()} />
-            </div> */}
+        <div className='flex flex-col gap-2 justify-between'>
+            <DateInput type='Start' />
+            <DateInput type='Display' />
+            <NumberInput type='StartingValue' />
+            <NumberInput type='Increment' />
         </div>
     )
 }
