@@ -1,0 +1,8 @@
+I'm going to have a setup component at the top that displays what the starting date, display date and increments are.
+Down below, there will be three windows displaying the values for the day before, the display date and the next date. 
+There will be arrows to move to the next and previous day.
+
+There may be issues if both dates match. I should be careful about that.
+
+
+I'll possibly add a tracker of progress between different days.
