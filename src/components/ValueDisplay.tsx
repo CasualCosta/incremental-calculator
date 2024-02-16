@@ -17,7 +17,7 @@ const ValueDisplay: React.FC<Props> = ({date, offset}) => {
     const interval = calculateInterval()
     const value = startValue * (1 + (increment/100)) ** (interval)
     const wholeNumber = context.wholeNumber
-    const WIDTH = 'w-64'
+    const WIDTH = 'w-56'
     const BACKGROUND_COLOR = 'bg-slate-700/10'
     const ROUNDED = 'rounded-2xl'
     const DIV_STYLE = `${WIDTH} ${BACKGROUND_COLOR} ${ROUNDED}`
@@ -29,14 +29,14 @@ const ValueDisplay: React.FC<Props> = ({date, offset}) => {
     if(interval < 0)
         return <div className={`${offset === 0 ? "" : "scale-50"} flex flex-col items-center py-8 text-red-500 ${DIV_STYLE}`}>
             <p className='text-red-300'>{offsetDate.toDateString()}</p>
-            <FaRegCircleXmark size={128} />
+            <FaRegCircleXmark size={76} />
             <p className='text-red-300'>Invalid date</p>
         </div>
     return (
-        <div className={`${offset === 0 ? "" : "scale-50"} py-8 ${DIV_STYLE}`}>
+        <div className={`${offset === 0 ? "" : "scale-50"} py-4 ${DIV_STYLE}`}>
             <p>{offsetDate.toDateString()}</p>
             <p className='text-4xl'>Day {interval + 1}</p>
-            <p className='text-8xl mb-8'>{wholeNumber ? Math.floor(value) : value.toFixed(3)}</p>
+            <p className='text-6xl mb-8'>{wholeNumber ? Math.floor(value) : value.toFixed(3)}</p>
         </div>
     )
 }

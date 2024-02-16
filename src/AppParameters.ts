@@ -12,6 +12,6 @@ export type Parameters = {
     setStartValue: Dispatch<SetStateAction<number>>,
     setIncrement: Dispatch<SetStateAction<number>>,
     setPreviousGap: Dispatch<SetStateAction<number>>,
-    setNextGap: Dispatch<SetStateAction<number>>
+    setNextGap: Dispatch<SetStateAction<number>>,
     setWholeNumber: Dispatch<SetStateAction<boolean>>
 } | undefined

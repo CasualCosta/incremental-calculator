@@ -3,10 +3,11 @@ import { AppContext } from '../AppContext'
 
 type Props = {
     type: "Increment" | "StartingValue"
-    width: string,
-    gap: string
+    descWidth: number,
+    inputWidth: number,
+    gap: number
 }
-const NumberInput: React.FC<Props> = ({ type, width, gap }) => {
+const NumberInput: React.FC<Props> = ({ type, descWidth, inputWidth, gap }) => {
     const context = useContext(AppContext)!
     const description = type === "Increment" ? "Increment (%):" : "Starting Value:"
     const value = type === "Increment" ? context.increment : context.startValue
@@ -17,15 +18,21 @@ const NumberInput: React.FC<Props> = ({ type, width, gap }) => {
         action(value)
     }
     return (
-        <div className={`flex justify-center gap-${gap}`}>
-            <p className={`w-${width}`}>{description}</p>
-            <input
-                type='number'
-                className={`w-32`}
-                value={value}
-                onChange={(e) => setClampedIncrement(e.target.valueAsNumber)}
+        <div className={`flex gap-${gap}`}>
+            <div className={`w-${descWidth}`}>
+                <p>{description}</p>
+            </div>
+            <div
+                className={`w-${inputWidth}`}
             >
-            </input>
+                <input
+                    type='number'
+                    className={`w-${inputWidth}`}
+                    value={value}
+                    onChange={(e) => setClampedIncrement(e.target.valueAsNumber)}
+                    >
+                </input>
+            </div>
         </div>
     )
 }
